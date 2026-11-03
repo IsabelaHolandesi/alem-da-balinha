@@ -1,0 +1,790 @@
+
+/* CONFIGURAÇÕES GERAIS */
+
+:root {
+    --fundo: #080510;
+    --fundo-secundario: #10091D;
+    --roxo: #6D28D9;
+    --roxo-neon: #A855F7;
+    --lilas: #D8B4FE;
+    --ciano: #00F5FF;
+    --rosa: #FF2BD6;
+    --branco: #F8F5FF;
+    --cinza: #BDB3CC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--branco);
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* MENU */
+
+.header {
+    width: 100%;
+    min-height: 80px;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(8, 5, 16, 0.95);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--roxo-neon);
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    font-size: 13px;
+    color: var(--cinza);
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: var(--lilas);
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* INÍCIO */
+
+.hero {
+    min-height: 620px;
+    padding: 90px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 80% 50%, rgba(109, 40, 217, 0.23), transparent 35%),
+        var(--fundo);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.tag,
+.section-title span {
+    color: var(--ciano);
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(48px, 7vw, 85px);
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    color: var(--roxo-neon);
+    text-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+}
+
+.hero-content p {
+    color: var(--cinza);
+    line-height: 1.8;
+    max-width: 480px;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.button {
+    padding: 15px 23px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 1px solid var(--roxo-neon);
+    transition: 0.3s;
+}
+
+.primary {
+    background: var(--roxo);
+    color: white;
+}
+
+.primary:hover {
+    background: var(--roxo-neon);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+}
+
+.secondary {
+    color: var(--lilas);
+    background: transparent;
+}
+
+.secondary:hover {
+    background: rgba(168, 85, 247, 0.15);
+}
+
+/* ANIMAÇÃO DO CÉREBRO */
+
+.hero-image {
+    width: 330px;
+    height: 330px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.brain {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, #A855F7 0%, #6D28D9 35%, #170D27 75%);
+    box-shadow:
+        0 0 40px #6D28D9,
+        0 0 100px rgba(168, 85, 247, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.brain span {
+    font-size: 50px;
+    color: white;
+}
+
+.brain strong {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.orbit {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(168, 85, 247, 0.5);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    transform: rotate(30deg) scaleY(0.5);
+    animation: rotate 8s linear infinite;
+}
+
+.orbit-two {
+    transform: rotate(-30deg) scaleY(0.5);
+    border-color: var(--ciano);
+    animation: rotate 10s linear infinite reverse;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) scaleY(0.5);
+    }
+
+    to {
+        transform: rotate(360deg) scaleY(0.5);
+    }
+}
+
+/* SEÇÕES */
+
+.section {
+    padding: 100px 10%;
+}
+
+.dark-section {
+    background: var(--fundo-secundario);
+}
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.section-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 42px);
+    margin: 20px 0;
+}
+
+.section-title h2 span {
+    color: var(--roxo-neon);
+    letter-spacing: 0;
+    font-size: inherit;
+}
+
+.section-title p {
+    color: var(--cinza);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+/* SOBRE */
+
+.content-card {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: #130B20;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.content-card h3 {
+    color: var(--lilas);
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.content-card p {
+    color: var(--cinza);
+    line-height: 1.9;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.warning-card {
+    padding: 25px;
+    text-align: center;
+    border: 1px solid var(--rosa);
+    border-radius: 10px;
+    background: rgba(255, 43, 214, 0.05);
+}
+
+.warning-icon {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--rosa);
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.warning-card h3 {
+    color: var(--rosa);
+    font-size: 18px;
+}
+
+.warning-card p {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+/* CIÊNCIA */
+
+.science-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.science-card {
+    background: #170D27;
+    padding: 30px;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.science-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--roxo-neon);
+}
+
+.science-icon {
+    color: var(--ciano);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.science-card h3 {
+    color: var(--lilas);
+    margin-bottom: 12px;
+}
+
+.science-card p,
+.science-note {
+    color: var(--cinza);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.science-note {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* EFEITOS */
+
+.effects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.effect-card {
+    background: #130B20;
+    border-left: 3px solid var(--roxo-neon);
+    padding: 30px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.effect-card:hover {
+    background: #1B1030;
+    transform: translateX(5px);
+}
+
+.effect-number {
+    color: var(--ciano);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+}
+
+.effect-card h3 {
+    color: var(--lilas);
+    margin: 15px 0;
+}
+
+.effect-card p {
+    color: var(--cinza);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* DEPOIS */
+
+.after-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.after-line {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    padding: 25px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.after-line > span {
+    color: var(--ciano);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+}
+
+.after-line h3 {
+    color: var(--lilas);
+    margin-bottom: 10px;
+}
+
+.after-line p {
+    color: var(--cinza);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* VÍDEO */
+
+.video-container {
+    max-width: 900px;
+    margin: auto;
+    aspect-ratio: 16 / 9;
+    background: #130B20;
+    border: 1px solid var(--roxo-neon);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 35px rgba(109, 40, 217, 0.2);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-caption {
+    color: var(--cinza);
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* MITOS E VERDADES */
+
+.myths-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.myth-card {
+    background: #170D27;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    padding: 30px;
+    text-align: left;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.myth-card:hover {
+    border-color: var(--ciano);
+    transform: translateY(-4px);
+}
+
+.myth-card strong {
+    color: var(--ciano);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.myth-card span {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 18px 0;
+}
+
+.myth-answer {
+    display: none;
+    color: var(--lilas);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.myth-card.active .myth-answer {
+    display: block;
+}
+
+.myth-card small {
+    color: var(--cinza);
+    font-size: 11px;
+}
+
+/* QUIZ */
+
+.quiz-box {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    background: #130B20;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    border-radius: 12px;
+}
+
+.quiz-progress {
+    width: 100%;
+    height: 7px;
+    background: #30203F;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 20%;
+    background: var(--roxo-neon);
+    transition: 0.3s;
+}
+
+#questionNumber {
+    color: var(--ciano);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.quiz-box h3 {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 12px;
+}
+
+.option {
+    padding: 15px;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    background: #1B1030;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.option:hover:not(:disabled) {
+    border-color: var(--ciano);
+}
+
+.option:disabled {
+    cursor: default;
+}
+
+.option.correct {
+    border-color: #4ADE80;
+    background: rgba(74, 222, 128, 0.12);
+}
+
+.option.wrong {
+    border-color: #F87171;
+    background: rgba(248, 113, 113, 0.12);
+}
+
+#feedback {
+    margin: 20px 0;
+    color: var(--lilas);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#nextButton {
+    margin-top: 15px;
+}
+
+#quizResult {
+    text-align: center;
+}
+
+#quizResult h3 {
+    color: var(--lilas);
+}
+
+#quizResult p {
+    color: var(--cinza);
+    margin-bottom: 25px;
+}
+
+/* FINAL */
+
+.final-section {
+    padding: 100px 10%;
+    text-align: center;
+    background:
+        radial-gradient(circle, rgba(109, 40, 217, 0.3), transparent 65%),
+        #10091D;
+}
+
+.final-section > span {
+    color: var(--ciano);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.final-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(30px, 5vw, 55px);
+    margin: 25px 0;
+    color: var(--lilas);
+}
+
+.final-section p {
+    color: var(--cinza);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+}
+
+.final-section .emergency {
+    margin-top: 25px;
+    color: var(--branco);
+    font-size: 13px;
+}
+
+/* RODAPÉ */
+
+.footer {
+    padding: 45px 10%;
+    text-align: center;
+    background: #06030C;
+    border-top: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.footer h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--roxo-neon);
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: var(--cinza);
+    font-size: 12px;
+}
+
+.sources {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.sources a {
+    color: var(--lilas);
+    font-size: 13px;
+}
+
+.sources a:hover {
+    color: var(--ciano);
+}
+
+.copyright {
+    margin-top: 30px;
+    opacity: 0.7;
+}
+
+/* CELULAR E TABLET */
+
+@media (max-width: 850px) {
+
+    .menu-button {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: #10091D;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 70px;
+    }
+
+    .hero-content p {
+        margin: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .science-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-card {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .hero-image {
+        transform: scale(0.8);
+        margin-top: -20px;
+    }
+
+    .section {
+        padding: 75px 7%;
+    }
+
+    .effects-grid,
+    .myths-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-card {
+        padding: 25px;
+    }
+
+    .quiz-box {
+        padding: 22px;
+    }
+
+    .sources {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}
